@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Gravity</title>
+	<meta charset="utf-8">
+	<script src="physics.js">
+        // Stolen from http://jonobr1.github.io/Physics/
+	</script>
+	<style>
+          html, body {
+            width:  100%;
+            height: 100%;
+            margin: 0px;
+            background-color: black;
+          }
+          
+          canvas {
+          	width:  100%;
+            	height: 100%;
+          	background-color: black;
+          }
+          
+          td {
+          	border: 1px solid white;
+          }
+          
+          #wrapper {
+              opacity:0.5;
+          }
+          
+          #inputs {
+          	background-color: #333;
+          	border: 2px solid white;
+          	position: absolute;
+          	right: 30px;
+          	top: 30px;
+          }
+          
+          .inputText {
+          	color:white;
+          	font-family: Gill Sans, Verdana;
+          	font-size: 11px;
+          	line-height: 14px;
+          	text-transform: uppercase;
+          	letter-spacing: 1px;
+          	font-weight: bold;
+          	margin-left: 5px;
+          	margin-right: 5px;
+          }
+          
+          
+          input[type="number"] {
+             width:50px;
+          }
+
+          /*
+          	Range button bullshiz
+          	Stolen From http://www.htmllion.com/html5-range-input-with-css.html
+          */
+          
+          input[type='range'] {
+          	-webkit-appearance: none;
+          	border-radius: 5px;
+          	box-shadow: inset 0 0 5px #333;
+          	background-color: #999;
+          	height: 10px;
+          	vertical-align: middle;
+          }
+          input[type='range']::-moz-range-track {
+          	-moz-appearance: none;
+          	border-radius: 5px;
+          	box-shadow: inset 0 0 5px #333;
+          	background-color: #999;
+          	height: 10px;
+          }
+          input[type='range']::-webkit-slider-thumb {
+          	-webkit-appearance: none !important;
+          	border-radius: 20px;
+          	background-color: #FFF;
+          	box-shadow:inset 0 0 10px rgba(000,000,000,0.5);
+          	border: 1px solid #999;
+          	height: 20px;
+          	width: 20px;
+          }
+          input[type='range']::-moz-range-thumb {
+          	-moz-appearance: none;
+          	border-radius: 20px;
+          	background-color: #FFF;
+          	box-shadow:inset 0 0 10px rgba(000,000,000,0.5);
+          	border: 1px solid #999;
+          	height: 20px;
+          	width: 20px;
+          }
+	</style>
+ 
+
+</head>
+
+<body>
+	<div id="wrapper">
+    	<div id="inputs" >
+    		<table>
+    			<tr> 
+    				<td> 
+    					<label for="nothing" class="inputText" > Click Anywhere to Pause </label> 
+    				</td>
+    				<td>	
+    					<input type="hidden" id="nothing1">
+    				</td>
+    			</tr>
+
+    			<tr> 
+    				<td> 
+    					<label for="tailToggle" class="inputText" > Tail Toggle </label> 
+    				</td>
+    				<td>	
+    					<input type="checkbox" id="tailToggle" checked>
+    				</td>
+    			</tr>
+
+                <tr> 
+                    <td> 
+                        <label for="boundryToggle" class="inputText" > Boundry Toggle </label> 
+                    </td>
+                    <td>    
+                        <input type="checkbox" id="boundryToggle" checked>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="numOfParticles" class="inputText" > Num of Particles </label> 
+                    </td>
+                    <td>
+                        <input type="number" id="numOfParticles"></input> 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="mass" class="inputText" > Mass Per Particle </label> 
+                    </td>
+                    <td>
+                        <input type="number" id="mass"></input> 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="strength" class="inputText" > Attraction Strength </label> 
+                    </td>
+                    <td>
+                        <input type="number" id="strength"></input> 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="size" class="inputText" > Pixel Size </label> 
+                    </td>
+                    <td>
+                        <input type="number" id="size"></input> 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="reset" class="inputText" > Reset </label> 
+                    </td>
+                    <td>
+                        <input type="button" id="reset" onclick="reset();" value="Submit"></input> 
+                    </td>
+                </tr>
+
+    		</table>
+    	</div>
+	</div>
+	<div>
+        <canvas id="canvas"></canvas>
+        <script src="gravity_functions.js"></script>
+        <script src="gravity_r.js"></script>
+       
+    </div>
+</body>
+</html>
