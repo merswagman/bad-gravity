@@ -1,0 +1,12 @@
+{
+  "name": "bad-gravity",
+  "version": "1.0.0",
+  "description": "Gravity simulation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
